@@ -3,15 +3,15 @@ import List_and_tuples
 import itertools
 
 
-
 def ran():
     try:
         n = r.randint(0, len(List_and_tuples.List) - 1)
         for key,v in List_and_tuples.List.items():
-                if(n == key):
+                if n == key:
                     return v
     except:
         print("Random Failed")
+
 
 def gen(times, t):
     try:
@@ -19,17 +19,15 @@ def gen(times, t):
         _t = t
         # So the string array isn't empty
         List_and_tuples.Password_Gen.append(ran())
-        #print(f"Starting: {List_and_tuples.Password[0]}")
+        # print(f"Starting: {List_and_tuples.Password[0]}")
 
         while _times > 0:
             n = ran()
             l = List_and_tuples.Password_Gen[len(List_and_tuples.Password_Gen) - 1]
 
-            #print(f"Random: {n} Last: {l}")
-
-            #Turn Upper or Lower Letters
+            # Turn Upper or Lower Letters
             upper = r.randint(0,1)
-            #print(upper)
+            # print(upper)
             if upper:
                 try:
                     n = n.upper()
@@ -44,7 +42,8 @@ def gen(times, t):
     except:
         print("Generate Failed")
 
-def Check(symbol, number, letters_lower, letters_upper):
+
+def check(symbol, number, letters_lower, letters_upper):
 
     try:
         # Compare the password list to the other tuples

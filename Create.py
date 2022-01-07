@@ -1,15 +1,14 @@
 import Gen
 import List_and_tuples
-from tkinter import*
 
 
-def create(times_,t_,symbol_,number_,letters_lower_,letters_upper_):
+def create(times_, t_, symbol_, number_, letters_lower_, letters_upper_):
 
     while True:
         List_and_tuples.Password_Gen.clear()
         Gen.gen(times_, t_)
         print(List_and_tuples.Password_Gen)
-        t_ = Gen.Check(symbol_, number_, letters_lower_, letters_upper_)
+        t_ = Gen.check(symbol_, number_, letters_lower_, letters_upper_)
         if t_:
             print("All True")
             # Crate String For Password
