@@ -16,29 +16,36 @@ State_Clear = True
 
 
 def gen_password():
-    # Get Entry
-    size = Size_Entry.get()
-    # Set Entry to int
-    s = int(size)
-    if(s > 8 and s < 25):
-        try:
-            dis()
-            Generate_Button.update()
-            print("Gen Started...")
+    try:
+        # Get Entry
+        size = Size_Entry.get()
+        # Set Entry to int
+        s = int(size)
+        if(s > 8 and s < 25):
+            try:
+                dis()
+                Generate_Button.update()
+                print("Gen Started...")
+                Password_Entry.delete(0, "end")
+                password = Create.create(s, t, s, n, low, upp)
+                Password_Entry.insert(END, password)
+            except:
+                Password_Entry.delete(0, "end")
+                Password_Entry.insert(END, "Failed to generate")
+                dis()
+            finally:
+                dis()
+                print("Gen_Password Finished")
+        else:
+            print("Size not correct")
             Password_Entry.delete(0, "end")
-            password = Create.create(s, t, s, n, low, upp)
-            Password_Entry.insert(END, password)
-        except:
-            Password_Entry.delete(0, "end")
-            Password_Entry.insert(END, "Failed to generate")
-            dis()
-        finally:
-            dis()
-            print("Gen_Password Finished")
-    else:
+            Password_Entry.insert(END, "Size MUST be 8-24 characters")
+    except:
         print("Size not correct")
         Password_Entry.delete(0, "end")
-        Password_Entry.insert(END, "Size MUST be 8-24 characters")
+        Password_Entry.insert(END, "Size MUST be a integer")
+    finally:
+        print("End")
 
 def dis():
     if Generate_Button["state"] == NORMAL:
