@@ -10,31 +10,35 @@ n = False
 low = False
 upp = False
 password = ""
+State_Clear = True
 
 ##Methods############################
 
 
 def gen_password():
-    try:
-        # Get Entry
-        size = Size_Entry.get()
-        # Set Entry to int
-        s = int(size)
-
-        dis()
-        Generate_Button.update()
-        print("Gen Started...")
+    # Get Entry
+    size = Size_Entry.get()
+    # Set Entry to int
+    s = int(size)
+    if(s > 8 and s < 25):
+        try:
+            dis()
+            Generate_Button.update()
+            print("Gen Started...")
+            Password_Entry.delete(0, "end")
+            password = Create.create(s, t, s, n, low, upp)
+            Password_Entry.insert(END, password)
+        except:
+            Password_Entry.delete(0, "end")
+            Password_Entry.insert(END, "Failed to generate")
+            dis()
+        finally:
+            dis()
+            print("Gen_Password Finished")
+    else:
+        print("Size not correct")
         Password_Entry.delete(0, "end")
-        password = Create.create(s, t, s, n, low, upp)
-        Password_Entry.insert(END, password)
-    except:
-        Password_Entry.delete(0, "end")
-        Password_Entry.insert(END, "Failed to generate")
-        dis()
-    finally:
-        dis()
-        print("Gen_Password Finished")
-
+        Password_Entry.insert(END, "Size MUST be 8-24 characters")
 
 def dis():
     if Generate_Button["state"] == NORMAL:
