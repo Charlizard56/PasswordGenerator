@@ -32,6 +32,12 @@ def gen_password():
                 password = Create.create(s, t, s, n, low, upp)
                 # Insert new password string
                 Password_Entry.insert(END, password)
+                # Copy to clipboard
+                try:
+                    root.clipboard_clear()
+                    root.clipboard_append(password)
+                except:
+                    print("Failed to copy to clipboard")
             except:
                 Password_Entry.delete(0, "end")
                 Password_Entry.insert(END, "Failed to generate")
@@ -49,6 +55,7 @@ def gen_password():
         Password_Entry.insert(END, "Size MUST be a integer")
     finally:
         print("End")
+
 
 def dis():
     if Generate_Button["state"] == NORMAL:
@@ -74,11 +81,12 @@ root.title("CL's Password Generator")
 
 
 My_Label = Label(root, text="Password: ")
+Size_Label = Label(root, text="Size: ")
 
 ##Button#####################################
 
 
-Generate_Button = Button(root, text="Generate", bg="LightGreen", width=25, command=(lambda: gen_password()))
+Generate_Button = Button(root, text="Generate", bg="LightGreen", width=10, command=(lambda: gen_password()))
 
 ##Entry Widget##############################
 
@@ -88,26 +96,26 @@ Size_Entry = Entry(root, bd=5, width=2)
 
 
 ###Draw to Screen############################
-############################################
+#############################################
 
-##Buttons###################################
+##Buttons####################################
 
 
-Generate_Button.grid(column=1,row=0)
+Generate_Button.grid(column=2,row=0)
 
-##Labels###################################
+##Labels####################################
 
 
 My_Label.grid(column=0,row=1)
+Size_Label.grid(column=0,row=0)
 
-
-##Entries#################################
+##Entries##################################
 
 
 Password_Entry.grid(column=1,row=1)
-Size_Entry.grid(column=0,row=0)
+Size_Entry.grid(column=1,row=0)
 
 
-##MainLoop###############################
+##MainLoop################################
 
 root.mainloop()
