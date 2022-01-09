@@ -10,10 +10,9 @@ n = False
 low = False
 upp = False
 password = ""
-State_Clear = True
 
 ##Methods############################
-
+#####################################
 
 def gen_password():
     try:
@@ -21,13 +20,17 @@ def gen_password():
         size = Size_Entry.get()
         # Set Entry to int
         s = int(size)
-        if(s > 8 and s < 25):
+        if(s > 7 and s < 25):
             try:
+                # Set Gen Button to Disabled
                 dis()
+                # Update Gen Button
                 Generate_Button.update()
                 print("Gen Started...")
+                # Delete Entry Bar
                 Password_Entry.delete(0, "end")
                 password = Create.create(s, t, s, n, low, upp)
+                # Insert new password string
                 Password_Entry.insert(END, password)
             except:
                 Password_Entry.delete(0, "end")
@@ -57,41 +60,54 @@ def dis():
         Generate_Button["text"] = "Generate"
         Generate_Button["bg"] = "LightGreen"
 
-##Set Title###################################
+##SET#########################################
+##############################################
+
+
+##Title#######################################
 
 
 root.title("CL's Password Generator")
 
 
-# Label Widget
+##Label Widget###############################
 
 
 My_Label = Label(root, text="Password: ")
 
-# Button
+##Button#####################################
 
 
 Generate_Button = Button(root, text="Generate", bg="LightGreen", width=25, command=(lambda: gen_password()))
 
-# Entry Widget
+##Entry Widget##############################
 
 
 Password_Entry = Entry(root, bd=4, width=30)
 Size_Entry = Entry(root, bd=5, width=2)
 
-###Add to Screen###########################
-# Buttons
+
+###Draw to Screen############################
+############################################
+
+##Buttons###################################
 
 
 Generate_Button.grid(column=1,row=0)
 
-# Labels
+##Labels###################################
 
 
 My_Label.grid(column=0,row=1)
 
-# Entries
+
+##Entries#################################
+
+
 Password_Entry.grid(column=1,row=1)
 Size_Entry.grid(column=0,row=0)
+
+
+##MainLoop###############################
 
 root.mainloop()
