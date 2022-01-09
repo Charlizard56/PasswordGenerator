@@ -1,7 +1,7 @@
 # PasswordGenerator
 
 ############
-Application located in "Main" flolder
+Application located in "dist" flolder
 ############
 
 Simple password generator:
