@@ -81,7 +81,7 @@ root.title("CL's Password Generator")
 
 root.geometry('338x80+700+200')
 
-##Label Widget###############################
+##Label Widget################################
 
 
 My_Label = Label(root, text="Password: ")
@@ -94,7 +94,7 @@ Show_Copied = Label(root, text="Copied to Clipboard",fg="Green")
 
 Generate_Button = Button(root, text="Generate", bg="LightGreen", width=10,height=4,bd=4, command=(lambda: gen_password()))
 
-##Entry Widget##############################
+##Entry Widget###############################
 
 
 Password_Entry = Entry(root, bd=4, width=30)
