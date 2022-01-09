@@ -7,5 +7,3 @@ Simple password generator:
 -Allows Numbers, Symbols & letters upper and lowercase
 
 -Restricts rows of duplicates ex. If 6 is used last and the next number generated is 6, the program will generate a new one.
-
-More features to be added over time.
