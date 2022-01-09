@@ -1,7 +1,7 @@
 # PasswordGenerator
 
 ############
-Application located in "dist" flolder
+"dist" flolder is a test app with console included. NOT the official release file.
 ############
 
 Simple password generator:
