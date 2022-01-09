@@ -9,7 +9,7 @@ s = False
 n = False
 low = False
 upp = False
-password = ""
+password = "Insert Length of characters above ^"
 
 ##Methods############################
 #####################################
@@ -36,6 +36,7 @@ def gen_password():
                 try:
                     root.clipboard_clear()
                     root.clipboard_append(password)
+                    Show_Copied.place(x=56, y=56)
                 except:
                     print("Failed to copy to clipboard")
             except:
@@ -52,7 +53,7 @@ def gen_password():
     except:
         print("Size not correct")
         Password_Entry.delete(0, "end")
-        Password_Entry.insert(END, "Size MUST be a integer")
+        Password_Entry.insert(END, "Size MUST be a Integer")
     finally:
         print("End")
 
@@ -76,17 +77,22 @@ def dis():
 
 root.title("CL's Password Generator")
 
+##Window######################################
+
+root.geometry('338x80+700+200')
 
 ##Label Widget###############################
 
 
 My_Label = Label(root, text="Password: ")
 Size_Label = Label(root, text="Size: ")
+Size_Instructions = Label(root, text="<== Character length: 8-24")
+Show_Copied = Label(root, text="Copied to Clipboard",fg="Green")
 
 ##Button#####################################
 
 
-Generate_Button = Button(root, text="Generate", bg="LightGreen", width=10, command=(lambda: gen_password()))
+Generate_Button = Button(root, text="Generate", bg="LightGreen", width=10,height=4,bd=4, command=(lambda: gen_password()))
 
 ##Entry Widget##############################
 
@@ -101,19 +107,21 @@ Size_Entry = Entry(root, bd=5, width=2)
 ##Buttons####################################
 
 
-Generate_Button.grid(column=2,row=0)
+Generate_Button.place(x=250,y=2)
 
 ##Labels####################################
 
 
-My_Label.grid(column=0,row=1)
-Size_Label.grid(column=0,row=0)
+My_Label.place(x=0,y=32)
+Size_Label.place(x=0,y=2)
+Size_Instructions.place(x=70,y=2)
+Show_Copied.place_forget()
 
 ##Entries##################################
 
 
-Password_Entry.grid(column=1,row=1)
-Size_Entry.grid(column=1,row=0)
+Password_Entry.place(x=60,y=30)
+Size_Entry.place(x=40,y=2)
 
 
 ##MainLoop################################
