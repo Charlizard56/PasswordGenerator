@@ -1,7 +1,7 @@
 # PasswordGenerator
 
 ############
-Application located in "Charlizards Password Generator" flolder
+Application located in "Main" flolder
 ############
 
 Simple password generator:
