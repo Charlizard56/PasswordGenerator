@@ -1,1 +1,2 @@
-*.Tcl linguist-detectable=true
+*.Tcl linguist-detectable=false
+*.C# linguist-detectable=false
