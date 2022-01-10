@@ -11,3 +11,5 @@ Simple password generator:
 -Allows Numbers, Symbols & Letters in Uppercase and Lowercase
 
 -Restricts rows of duplicates ex. If 6 is used last and the next number generated is 6, the program will generate a new one.
+
+-Auto copies to clipboard(Tested only on Windows)
